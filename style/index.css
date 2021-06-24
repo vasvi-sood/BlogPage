@@ -1,0 +1,115 @@
+body {
+  font-family: "monospace", "Lucida Handwriting", "impact";
+  background-color: silver;
+}
+* {
+  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.hide {
+	display: none;
+}
+nav {
+  background-color: thistle;
+
+  border-style: solid;
+  border-width: 0.5em;
+  border-color: magenta;
+  padding: 1em;
+  height: 5em;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+}
+nav ul {
+  list-style-type: none;
+}
+nav ul li a {
+  text-decoration: none;
+  color: crimson;
+  font-weight: bold;
+  font-size: 3em;
+}
+
+.left {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+}
+
+.right {
+  position: absolute;
+  top: 25%;
+  right: 5%;
+}
+
+.middle {
+  position: absolute;
+  top: 25%;
+  left: 40%;
+}
+
+/* All st20 Votes ￼￼yling for blog page comes here */
+.entry {
+  position: absolute;
+  top: 10em;
+  left: 10%;
+  width: 80%;
+  border-style: double;
+  border-color: chocolate;
+}
+.entry h1 {
+  text-align: center;
+}
+.content .title h2 {
+  color: purple;
+}
+.content {
+  background-color: gold;
+  color: blue;
+  border-style: groove;
+  text-align: justify;
+  padding: 1em;
+  margin-top: 5em;
+
+  height: 10em;
+  overflow: auto;
+}
+
+.upvote {
+  text-transform: capitalize;
+  font-style: oblique;
+  color: green;
+  float: right;
+  font-size: 2em;
+  background-color: orange;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.upvote .button img {
+  max-width: 3em;
+  max-height: 3em;
+}
+.footer {
+  border-style: solid;
+  border-width: 0.1em;
+  border-color: magenta;
+
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 0;
+  font-size: 2em;
+  background-color: thistle;
+  width: 100%;
+  text-align: center;
+}
+.adddata {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+.adddata form {
+  display: inline-grid;
+}
