@@ -92,7 +92,7 @@ session_start();
 
 
 ?>
-<!-- <div class="edit">HELLO <?=htmlentities($_SESSION['account']);?></div> -->
+<div class="edit">HELLO <?=htmlentities($_SESSION['account']);?></div>
 <?php
                                     
 
