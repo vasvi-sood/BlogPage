@@ -4,12 +4,13 @@
     right: 5%;
 }
 
-.edit {
+.profile {
     position: fixed;
-    top: 5%;
+    top: 15%;
     right: 0%;
-    width: 40%;
-    height: 80%;
+    width: 30%;
+    height: 70%;
+    background-color:blue;
 }
 
 .insert img {

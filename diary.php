@@ -48,17 +48,21 @@ session_start();
 ?><div class="card" id="card<?= $row['sno']; ?>">
     <div class="button">
         <?php
-                $var = $row['sno'] . ',' . "\"" . $row['title'] . "\"";
+         $arr1 = array(
+            "sno" => $row["sno"],
+            "title" => ($row['title'])
+         );
+                $var =json_encode($arr1,JSON_HEX_APOS);
                 ?>
         <input type="button" value="Delete" onclick='func(<?php echo $var; ?>)' />
         <?php
-                // addslashes(string $string)
+               
                 $arr = array(
                     "sno" => $row["sno"],
                     "title" => ($row['title']),
-                    "content" => addslashes($row['content'])
+                    "content" => $row['content']
                 );
-                // $var2=str_replace("'","\'",$arr);         
+                        
                 $var2 = json_encode($arr,JSON_HEX_APOS);
                 ?>
         <input type="button" value="Edit" onclick=' edit(<?= $var2 ?> )' />
@@ -92,7 +96,21 @@ session_start();
 
 
 ?>
-<div class="edit">HELLO <?=htmlentities($_SESSION['account']);?></div>
+<div class="profile">
+    <h1 style="
+    color: white;
+">HELLO, <?=htmlentities($_SESSION['account']);?></h1>
+    Gender
+    <br>
+    <input type="radio" name="gender" id="" value="Female" onclick="change('female','male','cute' )">Female
+    <input type="radio" name="gender" id="" value="Male" onclick="change('male','female','cute' )">Male
+    <input type="radio" name="gender" id="" value="notsay" onclick="change('cute','male','female' )" checked>Rather not
+    say
+    <div id="female" class="hidden"><img src="assets/female.png" />
+    </div>
+    <div id="male" class="hidden"><img src="assets/male.png" /> </div>
+    <div id="cute" class=""><img src="assets/cute.png" width="80%" /> </div>
+</div>
 <?php
                                     
 
@@ -107,7 +125,19 @@ session_start();
 
     ?><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-function func(sno, title) {
+function change(a, b, c) {
+    console.log(a, b, c);
+    document.getElementById(a).classList.remove("hidden");
+    document.getElementById(b).classList.add("hidden");
+    document.getElementById(c).classList.add("hidden");
+
+}
+
+
+function func(arr) {
+
+    let sno = JSON.parse(JSON.stringify(arr["sno"]));
+    let title = JSON.parse(JSON.stringify(arr["title"]));
     console.log(sno);
     let ans = confirm("Are you sure you want to delete the blog: " + title);
     console.log(ans);
@@ -142,12 +172,12 @@ function edit(arr) {
     var a = arr["title"];
     a = JSON.parse(JSON.stringify(a));
     var search = "\\";
-    a = a.replaceAll(search, "");
+    // a = a.replaceAll(search, "");
     document.getElementById("title").value = a;
     var b = arr["content"];
     b = JSON.parse(JSON.stringify(b));
-    b = b.replaceAll(search, "");
-    cont.textContent += b;
+    // b = b.replaceAll(search, "");
+    cont.textContent = b;
 
     document.getElementById("sno").value = arr["sno"];
 
@@ -160,7 +190,7 @@ function edit(arr) {
 function canc() {
     document.getElementById("content").textContent = "";
     document.getElementById("overlay").classList.add("hidden");
-    console.log("here");
+
 }
 </script><?php include "footer.php";
                         ?>
